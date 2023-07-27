@@ -94,7 +94,7 @@ export default function Home(props) {
                                     {question.content.substr(0, 60).split("\n").map((item, index, arr) => (
                                         <div key={`content_${idx}_${index}`}>
                                             <span>{item}</span>
-                                            {(index === arr.length - 1 && arr.length > 60) && "..."}
+                                            {(index === arr.length - 1) && <p>...</p>}
                                             {(index !== arr.length - 1 || index > 0) && <br />}
                                         </div>
                                     ))}
