@@ -90,15 +90,17 @@ export default function Home(props) {
                     questions.map((question, idx) => {
                         return (
                             <a href={`/question/${question.objectId}`} key={`question_${question.objectId}`} className={styles.card}>
-                                <h2>
-                                    {question.content.split("\n").map((item, index, arr) => (
+                                <h3>
+                                    {question.content.substr(0, 60).split("\n").map((item, index, arr) => (
                                         <div key={`content_${idx}_${index}`}>
-                                            <span>{item}</span>
-                                            {(index !== arr.length - 1 || index > 0) && <br />}
+                                            <p>
+                                                <span>{item}</span>
+                                                {(index !== arr.length - 1 || index > 0) && <br />}
+                                            </p>
                                         </div>
                                     ))}
                                     &rarr;
-                                </h2>
+                                </h3>
                                 <h4>{new Date(question.createdAt).toLocaleDateString()}</h4>
                                 <p>{question.answer?.content}</p>
                             </a>
