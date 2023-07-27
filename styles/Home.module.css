@@ -32,7 +32,7 @@
     margin: 0;
     line-height: 1.15;
     font-size: calc(1.5rem + 2vmin);
-    background-image: linear-gradient(to right, orange, purple);
+    background-image: linear-gradient(to left, #e66465, #9198e5);
     background-clip: text;
     color: transparent;
 }
@@ -80,7 +80,7 @@
 
 .card:focus,
 .card:active {
-    background-image: linear-gradient(to right, orange, purple);
+    background-image: linear-gradient(to left, #e66465, #9198e5);
     background-clip: text;
     color: transparent;
     border-color: orange;
@@ -125,7 +125,7 @@
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
-    background-image: linear-gradient(to left, orange, purple);
+    background-image: linear-gradient(to left, #e66465, #9198e5);
     background-clip: border-box;
     cursor: pointer;
     width: 100%;
