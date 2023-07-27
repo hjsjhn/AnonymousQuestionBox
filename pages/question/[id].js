@@ -93,14 +93,14 @@ export default function QuestionCard(props) {
     return (
         <Container title="问题详情" >
             <h1 className={styles.title}>
-                问题详情 <br />
+                问题详情 <br /> <br />
             </h1>
 
             {!question ? (
                 <CircularProgress />
             ) : (
                 <Grid container columns={12} justifyContent="center" alignItems="flex-start">
-                    <Card item xs={12} sm={8} md={6} lg={5}>
+                    <Card item xs={12} sm={6} md={4} lg={3}>
                         <CardHeader subheader={new Date(question?.createdAt).toLocaleString()} />
                         <CardContent>
                             <Typography variant="h6" color="text.header">
