@@ -154,7 +154,7 @@ export default function QuestionCard(props) {
                                 </>
                             ) : (
                                 <CardContent>
-                                    <Typography variant="body1" color="text.secondary" style={{ fontSize: 17 }}>
+                                    <Typography variant="body1" color="text.secondary" style={{ fontSize: 19 }}>
                                         {originalAnswer?.content?.split("\n").map((item, index) => (
                                             <div key={`answer_content_${index}`}>
                                                 <span>{item}</span>

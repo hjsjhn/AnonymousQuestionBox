@@ -90,7 +90,7 @@ export default function Home(props) {
                     questions.map((question, idx) => {
                         return (
                             <a href={`/question/${question.objectId}`} key={`question_${question.objectId}`} className={styles.card}>
-                                <h3>
+                                <span style={{ fontSize: "21px", fontWeight: "bold" }}>
                                     {question.content.substr(0, 80).split("\n").map((item, index, arr) => (
                                         <div key={`content_${idx}_${index}`}>
                                             <span>{item}{(index === arr.length - 1 && question.content.length > 80) && "..."}</span>
@@ -98,7 +98,7 @@ export default function Home(props) {
                                         </div>
                                     ))}
                                     &rarr;
-                                </h3>
+                                </span>
                                 <h4>{new Date(question.createdAt).toLocaleDateString()}</h4>
                                 <p>{question.answer?.content}</p>
                             </a>
