@@ -91,9 +91,9 @@ export default function Home(props) {
                         return (
                             <a href={`/question/${question.objectId}`} key={`question_${question.objectId}`} className={styles.card}>
                                 <h3>
-                                    {question.content.substr(0, 60).split("\n").map((item, index, arr) => (
+                                    {question.content.substr(0, 80).split("\n").map((item, index, arr) => (
                                         <div key={`content_${idx}_${index}`}>
-                                            <span>{item}{(index === arr.length - 1 && question.content.length > 60) && "..."}</span>
+                                            <span>{item}{(index === arr.length - 1 && question.content.length > 80) && "..."}</span>
                                             {(index !== arr.length - 1 || index > 0) && <br />}
                                         </div>
                                     ))}
