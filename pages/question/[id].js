@@ -99,8 +99,8 @@ export default function QuestionCard(props) {
             {!question ? (
                 <CircularProgress />
             ) : (
-                <Grid container columns={12} justifyContent="center" alignItems="flex-start">
-                    <Card item xs={12} sm={10} md={8} lg={6}>
+                <Grid container columns={12} spacing={6} justifyContent="center" alignItems="flex-start">
+                    <Card item xs={12} sm={8} md={6} lg={5}>
                         <CardHeader subheader={new Date(question?.createdAt).toLocaleString()} />
                         <CardContent>
                             <Typography variant="h6" color="text.header">

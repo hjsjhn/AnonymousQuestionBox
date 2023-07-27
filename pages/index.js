@@ -93,8 +93,7 @@ export default function Home(props) {
                                 <h3>
                                     {question.content.substr(0, 60).split("\n").map((item, index, arr) => (
                                         <div key={`content_${idx}_${index}`}>
-                                            <span>{item}</span>
-                                            {(index === arr.length - 1) && <p>...</p>}
+                                            <span>{item}{(index === arr.length - 1 && question.content.length > 60) && "..."}</span>
                                             {(index !== arr.length - 1 || index > 0) && <br />}
                                         </div>
                                     ))}
