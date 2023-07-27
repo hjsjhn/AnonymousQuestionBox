@@ -97,7 +97,7 @@ export default function QuestionCard(props) {
                 <Card sx={{ maxWidth: 400, width: "100%" }}>
                     <CardHeader subheader={new Date(question?.createdAt).toLocaleString()} />
                     <CardContent>
-                        <Typography variant="h5" color="text.header">
+                        <Typography variant="h3" color="text.header">
                             {question?.content?.split("\n").map((item, index) => (
                                 <div key={`question_content_${index}`}>
                                     <span>{item}</span>
@@ -148,7 +148,7 @@ export default function QuestionCard(props) {
                             </>
                         ) : (
                             <CardContent>
-                                <Typography variant="body1" color="text.secondary">
+                                <Typography variant="body1" color="text.secondary" style={{ fontSize: 8 }}>
                                     {originalAnswer?.content?.split("\n").map((item, index) => (
                                         <div key={`answer_content_${index}`}>
                                             <span>{item}</span>
