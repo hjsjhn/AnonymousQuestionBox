@@ -13,6 +13,11 @@ import TextField from "@mui/material/TextField";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import CircularProgress from "@mui/material/CircularProgress";
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 import AddCommentOutlinedIcon from "@mui/icons-material/AddCommentOutlined";
 import ExpandLessOutlinedIcon from "@mui/icons-material/ExpandLessOutlined";
@@ -45,6 +50,7 @@ export default function QuestionCard(props) {
     const [answer, setAnswer] = useState("");
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [snackbarHint, setSnackbarHint] = useState("");
+    const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
     const [token, setToken] = useState("");
 
     const { data: question } = useSWR(`/api/question/${id}`, fetcher);
@@ -142,9 +148,30 @@ export default function QuestionCard(props) {
                                     <CardActions disableSpacing>
                                         {logged && (
                                             <>
-                                                <Button size="small" onClick={handleDeleteQuestion}>
+                                                <Button size="small" onClick={() => setDeleteDialogOpen(true)}>
                                                     删除问题
                                                 </Button>
+                                                <Dialog
+                                                    open={deleteDialogOpen}
+                                                    onClose={() => setDeleteDialogOpen(false)}
+                                                    aria-labelledby="alert-dialog-title"
+                                                    aria-describedby="alert-dialog-description"
+                                                >
+                                                    <DialogTitle id="alert-dialog-title">
+                                                        {"确认删除问题吗？"}
+                                                    </DialogTitle>
+                                                    <DialogContent>
+                                                        <DialogContentText id="alert-dialog-description">
+                                                            问题删除后就永远不存在了，就像人无法两次踏进同一条河流
+                                                        </DialogContentText>
+                                                    </DialogContent>
+                                                    <DialogActions>
+                                                        <Button onClick={() => setDeleteDialogOpen(false)} autoFocus>取消</Button>
+                                                        <Button onClick={handleDeleteQuestion}>
+                                                            删除
+                                                        </Button>
+                                                    </DialogActions>
+                                                </Dialog>
                                             </>
                                         )}
                                         <Button style={{ marginLeft: "auto" }} size="small" onClick={handleSaveAnswer}>
